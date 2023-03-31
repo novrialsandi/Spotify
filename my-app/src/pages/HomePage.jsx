@@ -6,11 +6,11 @@ import Sidebar from "../component/sidebar";
 export default function Homepage() {
 	return (
 		<>
-			{/* <Content /> */}
+			{/* <Content />
 			<Navbar />
 
-			<Playbar />
-			{/* <Sidebar /> */}
+			<Playbar /> */}
+			<Sidebar />
 		</>
 	);
 }

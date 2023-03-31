@@ -1,5 +1,69 @@
-#Box {
-	max-width: 240px;
+#boxS {
+	max-width: 241px;
 	width: 100vw;
 	height: 100vh;
+	z-index: 3;
+	background-color: black;
+	padding: 22px;
+}
+
+#spotifyS {
+	width: 205x;
+}
+
+.logoS {
+	width: 130px;
+}
+
+#homeS {
+	padding-top: 20px;
+}
+.flexS {
+	width: 205x;
+	height: 40px;
+	align-items: center;
+	gap: 20px;
+}
+
+.flexS div {
+	height: 40px;
+	display: flex;
+	align-items: center;
+}
+
+div {
+	color: #9d9187;
+	width: 100%;
+
+	align-items: center;
+}
+
+div:hover {
+	color: white;
+}
+
+#playlistS {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px;
+	border-style: groove;
+	border-color: #262626;
+}
+
+#boxPlaylistS {
+	padding-top: 20px;
+	/* width: 215px; */
+	height: 450px;
+	overflow-y: hidden;
+}
+#boxPlaylistS:hover {
+	height: 100%;
+	max-height: 450px;
+	overflow-y: scroll;
+}
+
+#boxPlaylistS div {
+	height: 32px;
+	display: flex;
+	align-items: center;
 }
