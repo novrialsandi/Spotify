@@ -1,5 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import "../css/spotify.css";
 
-export default function Navbar() {
-	return <div>asd</div>;
-}
+export default function Navbar() {}
