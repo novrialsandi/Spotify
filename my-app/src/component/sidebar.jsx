@@ -43,9 +43,9 @@ export default function Sidebar() {
 					<div>Liked Songs</div>
 				</Flex>
 			</Box>
-			<Box paddingBottom={"90px"}>
+			<Box>
 				<Box id="boxPlaylistS">
-					<div>Playlist</div>
+					<div>Playlistddddddddddddddddddddddddddd</div>
 					<div>Playlist</div>
 					<div>Playlist</div>
 					<div>Playlist</div>
