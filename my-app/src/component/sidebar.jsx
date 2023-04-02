@@ -17,15 +17,15 @@ export default function Sidebar() {
 			<Box id="homeS">
 				<Flex className="flexS">
 					<Icon as={RiHomeFill} height="24px" width="24px"></Icon>
-					<div>Home</div>
+					<div className="divS">Home</div>
 				</Flex>
 				<Flex className="flexS">
 					<Icon as={FiSearch} height="24px" width={"24px"}></Icon>
-					<div>Search</div>
+					<div className="divS">Search</div>
 				</Flex>
 				<Flex className="flexS">
 					<Icon as={VscLibrary} height="24px" width={"24px"}></Icon>
-					<div>Your Library</div>
+					<div className="divS">Your Library</div>
 				</Flex>
 			</Box>
 
@@ -36,33 +36,36 @@ export default function Sidebar() {
 						height="24px"
 						width={"24px"}
 					></Icon>
-					<div>Create Playlist</div>
+					<div className="divS">Create Playlist</div>
 				</Flex>
 				<Flex className="flexS">
 					<Icon as={FcLike} height="24px" width={"24px"}></Icon>
-					<div>Liked Songs</div>
+					<div className="divS">Liked Songs</div>
 				</Flex>
 			</Box>
 			<Box>
 				<Box id="boxPlaylistS">
-					<div>Playlistddddddddddddddddddddddddddd</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
+					<div className="divS">
+						Playlistddddddddddddddddddddddddddd
+					</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
+					<div className="divS">Playlist</div>
 				</Box>
 			</Box>
 		</Box>
