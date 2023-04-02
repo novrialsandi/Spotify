@@ -16,16 +16,15 @@ export default function Sidebar() {
 
 			<Box id="homeS">
 				<Flex className="flexS">
-					<Icon as={RiHomeFill} height="24px" width="24px"></Icon>
-					<div className="divS">Home</div>
+					<Icon as={RiHomeFill} height="24px" width="24px"></Icon>Home
 				</Flex>
 				<Flex className="flexS">
 					<Icon as={FiSearch} height="24px" width={"24px"}></Icon>
-					<div className="divS">Search</div>
+					Search
 				</Flex>
 				<Flex className="flexS">
 					<Icon as={VscLibrary} height="24px" width={"24px"}></Icon>
-					<div className="divS">Your Library</div>
+					Your Library
 				</Flex>
 			</Box>
 
@@ -36,18 +35,16 @@ export default function Sidebar() {
 						height="24px"
 						width={"24px"}
 					></Icon>
-					<div className="divS">Create Playlist</div>
+					Create Playlist
 				</Flex>
 				<Flex className="flexS">
-					<Icon as={FcLike} height="24px" width={"24px"}></Icon>
-					<div className="divS">Liked Songs</div>
+					<Icon as={FcLike} height="24px" width={"24px"}></Icon>Liked
+					Songs
 				</Flex>
 			</Box>
 			<Box>
 				<Box id="boxPlaylistS">
-					<div className="divS">
-						Playlistddddddddddddddddddddddddddd
-					</div>
+					<div className="divS">Playlist</div>
 					<div className="divS">Playlist</div>
 					<div className="divS">Playlist</div>
 					<div className="divS">Playlist</div>
