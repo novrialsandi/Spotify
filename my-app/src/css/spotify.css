@@ -1,93 +1,94 @@
-
 .backgroundB {
-  max-width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: rgb(12, 12, 12);
+	max-width: 100vw;
+	position: fixed;
+	z-index: 0;
+	height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	background-color: rgb(12, 12, 12);
 }
 .paddingKontenB {
-  /* padding-left: 241px; */
-  margin-left: 241px;
-  padding-top: 64px;
-  padding-bottom: 90px;
-  padding-right: 32px;
-  height: calc(100vh - 90px);
-  overflow-y: scroll;
-  scroll-behavior: smooth;
+	/* padding-left: 241px; */
+	margin-left: 241px;
+	padding-top: 64px;
+	padding-bottom: 90px;
+	padding-right: 32px;
+	height: calc(100vh - 90px);
+	overflow-y: scroll;
+	scroll-behavior: smooth;
 }
 .paddingKontenB::-webkit-scrollbar {
-  background-color: rgb(12, 12, 12);
-  width: 12px;
-  height: 5px;
+	background-color: rgb(12, 12, 12);
+	width: 12px;
+	height: 5px;
 }
 .paddingKontenB::-webkit-scrollbar-thumb {
-  background-color: rgb(12, 12, 12);
+	background-color: rgb(12, 12, 12);
 }
 .paddingKontenB:hover::-webkit-scrollbar-thumb {
-  background-color: #aaa;
+	background-color: #aaa;
 }
 .kontenerB {
-  width: calc(100vw-241px);
-  max-width: 100vw;
-  max-height: 350px;
-  /* flex-wrap: wrap; */
-  padding-top: 24px;
-  overflow: hidden;
+	width: calc(100vw-241px);
+	max-width: 100vw;
+	max-height: 350px;
+	/* flex-wrap: wrap; */
+	padding-top: 24px;
+	overflow: hidden;
 }
 .namaGroupB {
-  width: calc(100vw-241px);
-  max-width: 100vw;
-  padding-right: 28px;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
+	width: calc(100vw-241px);
+	max-width: 100vw;
+	padding-right: 28px;
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
 }
 .h1B {
-  padding-left: 30px;
-  font-weight: 600;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
+	padding-left: 30px;
+	font-weight: 600;
+	color: white;
+	font-size: 24px;
+	cursor: pointer;
 }
 .h1B:hover {
-  text-decoration-line: underline;
+	text-decoration-line: underline;
 }
 .h2B {
-  display: flex;
-  align-items: center;
-  padding-left: 30px;
-  font-weight: 600;
-  color: rgb(167, 167, 167);
-  font-size: 14px;
-  cursor: pointer;
+	display: flex;
+	align-items: center;
+	padding-left: 30px;
+	font-weight: 600;
+	color: rgb(167, 167, 167);
+	font-size: 14px;
+	cursor: pointer;
 }
 .h2B:hover {
-  text-decoration-line: underline;
+	text-decoration-line: underline;
 }
 #musicCoverB {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 27px;
-  /* row-gap: 80px; */
-  padding-left: 30px;
-  height: 290px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 27px;
+	/* row-gap: 80px; */
+	padding-left: 30px;
+	height: 290px;
 }
 .cardB {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  width: 192.2px;
-  height: 270.21px;
-  border: 1px solid rgb(24, 24, 24);
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: rgb(24, 24, 24);
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	width: 192.2px;
+	height: 270.21px;
+	border: 1px solid rgb(24, 24, 24);
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: rgb(24, 24, 24);
 }
 .cardB:hover {
-  background-color: rgb(46, 46, 46);
+	background-color: rgb(46, 46, 46);
 }
 /* .playbuttonB {
   width: 192.2px;
@@ -106,44 +107,45 @@
   opacity: 1;
 } */
 .gambarB {
-  width: 230px;
-  height: 182.2px;
-  padding-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: 230px;
+	height: 182.2px;
+	padding-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .img1B {
-  border-radius: 10px;
-  /* z-index: 0;
+	border-radius: 10px;
+	/* z-index: 0;
   position: fixed; */
 }
 .img2B {
-  border-radius: 5px;
-  /* z-index: 1;
+	border-radius: 5px;
+	/* z-index: 1;
   position: fixed; */
 }
 .infoB {
-  height: 75px;
-  padding-left: 13px;
-  padding-right: 13px;
-  width: 246px;
+	height: 75px;
+	padding-left: 13px;
+	padding-right: 13px;
+	width: 246px;
 }
 .tittleB {
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
+	font-size: 16px;
+	font-weight: 600;
+	color: white;
 }
 .keteranganB {
-  padding-top: 5px;
-  font-size: 13px;
-  font-weight: 500;
-  color: rgb(167, 167, 167);
-
+	padding-top: 5px;
+	font-size: 13px;
+	font-weight: 500;
+	color: rgb(167, 167, 167);
+}
 #boxS {
 	max-width: 241px;
 	height: 100vh;
 	z-index: 3;
+	position: fixed;
 	background-color: black;
 	padding-left: 22px;
 	padding-top: 22px;

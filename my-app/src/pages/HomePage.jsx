@@ -6,10 +6,10 @@ import Sidebar from "../component/sidebar";
 export default function Homepage() {
 	return (
 		<>
-			{/* <Content />
-			<Navbar />
+			<Content />
+			{/* <Navbar /> */}
 
-			<Playbar /> */}
+			{/* <Playbar /> */}
 			<Sidebar />
 		</>
 	);
