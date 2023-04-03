@@ -42,7 +42,9 @@
 }
 
 .judullagu_Mikhael p {
-  color: white;
+	color: white;
+	white-space: nowrap;
+
 }
 
 .judullagu2_mikhael {
@@ -134,14 +136,13 @@
 
 .Container2_Mikhael {
   display: flex;
-
-  height: 60px;
-  width: 90%;
-  background-color: black;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 261px;
-  padding-right: 20px;
+	height: 60px;
+	width: 100%;
+	background-color: black;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 261px;
+	padding-right: 20px;
 }
 
 .Container3_Mikhael {
@@ -395,22 +396,22 @@ div:hover {
 }
 
 #boxPlaylistS {
-  padding-top: 20px;
-  height: 450px;
-  overflow-y: hidden;
-  overflow-x: hidden;
+	padding-top: 20px;
+	height: 470px;
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 #boxPlaylistS:hover {
-  height: 450px;
-  overflow-y: scroll;
+	height: 470px;
+	overflow-y: scroll;
 }
 
 #boxPlaylistS::-webkit-scrollbar {
-  /* background-color: gold; */
-  background-color: transparent;
-  width: 12px;
-  height: 5px;
+	background-color: transparent;
+	width: 12px;
+	height: 5px;
 }
+
 #boxPlaylistS::-webkit-scrollbar-thumb {
   background-color: #aaa;
 }
