@@ -252,14 +252,15 @@ function CardB(props) {
   return (
     <div className="cardB">
       {/* <div className="playbuttonB">
-				<img
-					id="playbuttonB"
-					src={playbuttonB}
-					alt="playbuttonB"
-					width={"70px"}
-					height={"70px"}
-				/>
-			</div> */}
+        {" "}
+        <img
+          id="playbuttonB"
+          src={playbuttonB}
+          alt="playbuttonB"
+          width={"30px"}
+          height={"30px"}
+        />
+      </div> */}
       <div className="gambarB">
         <img
           id="img1B"
