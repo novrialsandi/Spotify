@@ -9,13 +9,13 @@ import { FcLike } from "react-icons/fc";
 
 export default function Sidebar() {
 	return (
-		<Box id="boxS">
+		<Box bgColor={"black"} id="boxS">
 			<Flex id="spotifyS">
 				<img src={SpotifyLogo} className="logoS" alt="" />
 			</Flex>
 
-			<Box id="homeS">
-				<Flex className="flexS">
+			<Box bgColor={"black"} id="homeS">
+				<Flex bgColor={"black"} className="flexS">
 					<Icon as={RiHomeFill} height="24px" width="24px"></Icon>Home
 				</Flex>
 				<Flex className="flexS">
