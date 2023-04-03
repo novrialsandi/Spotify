@@ -138,8 +138,10 @@
   height: 60px;
   width: 90%;
   background-color: black;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding-left: 261px;
+  padding-right: 20px;
 }
 
 .Container3_Mikhael {
