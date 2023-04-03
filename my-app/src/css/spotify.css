@@ -1,3 +1,194 @@
+* {
+	color: white;
+}
+
+.pembungkusBungkus_Mikhael {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.playbar1_Mikhael {
+	position: fixed;
+	bottom: 0;
+	z-index: 100;
+	width: 100%;
+	height: 90.67px;
+	background-color: black;
+	display: flex;
+}
+
+.pembungkus_Mikhael {
+	display: flex;
+
+	align-items: center;
+	width: 100%;
+	padding: 0px 20px;
+}
+
+.kiri_Mikhael {
+	display: flex;
+}
+.gambar_Mikhael img {
+	width: 56px;
+	height: 56px;
+}
+
+.judullagu_Mikhael {
+	display: flex;
+	align-items: center;
+
+	padding: 0px 20px;
+}
+
+.judullagu_Mikhael p {
+	color: white;
+}
+
+.judullagu2_mikhael {
+	display: grid;
+}
+
+.logo_Mikhael {
+	display: flex;
+	padding: 0px 20px;
+	gap: 10px;
+}
+
+/* Tengah  */
+.tengah_Mikhael {
+	display: grid;
+}
+
+.tombolAtas_Mikhael {
+	display: flex;
+	justify-content: center;
+}
+
+.ta_Mikhael {
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+	gap: 30px;
+	padding-bottom: 5px;
+}
+
+.playButton_Mikhael {
+	font-size: 30px;
+}
+
+.bawah {
+	display: flex;
+}
+
+.tombolBawah_Mikhael {
+	display: flex;
+	align-items: end;
+	justify-content: center;
+}
+
+.slider_Mikhael {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.slider_Mikhael p {
+	font-size: 10px;
+}
+
+.slider_Mikhael input {
+	width: 300px;
+}
+
+/* kanan */
+.kananSpot_Mikhael {
+	display: flex;
+	align-items: center;
+
+	justify-content: right;
+	gap: 20px;
+}
+
+.isiKanan_Mikhael {
+	display: flex;
+	justify-content: right;
+	gap: 15px;
+	width: 300px;
+}
+
+.isiKanan_Mikhael Slider {
+	width: 200px;
+}
+
+/* Playbar selesai */
+
+.Container1_Mikhael {
+	display: flex;
+	z-index: 1;
+	position: fixed;
+	width: 100%;
+	height: 60px;
+	justify-content: flex-end;
+}
+
+.Container2_Mikhael {
+	display: flex;
+
+	height: 60px;
+	width: 90%;
+	background-color: black;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.Container3_Mikhael {
+	display: flex;
+	align-items: center;
+}
+
+.Profil_Mikhael {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.RightLeft_Mikhael {
+	display: flex;
+	width: 80px;
+	justify-content: center;
+	gap: 20px;
+}
+
+.UpgradeProfil_Mikhael {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.garis_Mikhael {
+	display: flex;
+	width: 700px;
+	gap: 1000px;
+}
+
+.Upgrade1_Mikhael {
+	display: flex;
+}
+
+.Gambar2_Mikhael {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 2000px;
+	overflow: hidden;
+}
+.Gambar2_Mikhael img {
+	width: 100%;
+	height: auto;
+}
 .backgroundB {
 	max-width: 100vw;
 	position: fixed;
@@ -92,21 +283,21 @@
 	background-color: rgb(46, 46, 46);
 }
 /* .playbuttonB {
-	width: 192.2px;
-	height: 270.21px;
-	position: absolute;
-	z-index: 1;
-	opacity: 0;
-	display: grid;
-	justify-items: end;
-	align-items: center;
-	transition: 0.3s;
-	padding-right: 15px;
-	padding-top: 20px;
-}
-.playbuttonB:hover {
-	opacity: 1;
-} */
+	  width: 192.2px;
+	  height: 270.21px;
+	  position: absolute;
+	  z-index: 1;
+	  opacity: 0;
+	  display: grid;
+	  justify-items: end;
+	  align-items: center;
+	  transition: 0.3s;
+	  padding-right: 15px;
+	  padding-top: 20px;
+  }
+  .playbuttonB:hover {
+	  opacity: 1;
+  } */
 .gambarB {
 	width: 230px;
 	height: 182.2px;
@@ -118,12 +309,12 @@
 .img1B {
 	border-radius: 10px;
 	/* z-index: 0;
-  position: fixed; */
+	position: fixed; */
 }
 .img2B {
 	border-radius: 5px;
 	/* z-index: 1;
-  position: fixed; */
+	position: fixed; */
 }
 .infoB {
 	height: 75px;

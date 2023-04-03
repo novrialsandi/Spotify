@@ -7,9 +7,9 @@ export default function Homepage() {
 	return (
 		<>
 			<Content />
-			{/* <Navbar /> */}
+			<Navbar />
 
-			{/* <Playbar /> */}
+			<Playbar />
 			<Sidebar />
 		</>
 	);
