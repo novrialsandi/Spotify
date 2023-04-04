@@ -142,7 +142,7 @@ export default function LoginPage() {
 							flexDir={"column"}
 							gap={"5px"}
 						>
-							<Box color={"black"} fontWeight={"700"}>
+							<Box fontWeight={"700"}>
 								Email address or username
 							</Box>
 							<Input
@@ -160,9 +160,7 @@ export default function LoginPage() {
 							flexDir={"column"}
 							gap={"5px"}
 						>
-							<Box color={"black"} fontWeight={"700"}>
-								Password
-							</Box>
+							<Box fontWeight={"700"}>Password</Box>
 							<InputGroup size={"md"}>
 								<Input
 									onChange={inputHandler}
@@ -193,7 +191,6 @@ export default function LoginPage() {
 
 						<Box w={"100%"} flexDir={"column"} gap={"5px"}>
 							<Box
-								color={"black"}
 								cursor={"pointer"}
 								textDecoration={"underline"}
 								fontWeight={"700"}
