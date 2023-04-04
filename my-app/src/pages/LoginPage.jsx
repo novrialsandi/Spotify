@@ -205,6 +205,7 @@ export default function LoginPage() {
 						fontWeight={"600"}
 						gap={"5px"}
 						justifyContent={"space-between"}
+						color={"black"}
 					>
 						<Flex alignItems={"flex-start"}>
 							<Checkbox colorScheme="green" />
