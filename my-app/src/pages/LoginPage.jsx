@@ -13,12 +13,16 @@ import {
 } from "@chakra-ui/react";
 import { BsApple, BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
 	const nav = useNavigate();
 	const [account, setAccount] = useState({ email: "", password: "" });
+
+	useEffect(() => {
+		console.log("ada ketikan password baru");
+	}, [account.password]);
 
 	function inputHandler(event) {
 		const { value, id } = event.target;
@@ -187,6 +191,9 @@ export default function LoginPage() {
 									></Icon>
 								</InputRightElement>
 							</InputGroup>
+							{account.password.length < 8 ? (
+								<Box color={"red"}>password minimal 8</Box>
+							) : null}
 						</Box>
 
 						<Box w={"100%"} flexDir={"column"} gap={"5px"}>
@@ -249,9 +256,7 @@ export default function LoginPage() {
 						border={"1px solid #A5A5A5"}
 						bgColor={"white"}
 					>
-						<Center color={"black"}>
-							CONTINUE WITH PHONE NUMBER
-						</Center>
+						<Center>CONTINUE WITH PHONE NUMBER</Center>
 					</Center>
 				</Center>
 			</Center>

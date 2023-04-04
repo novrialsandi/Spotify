@@ -9,8 +9,12 @@ import {
 import { Button } from "@chakra-ui/react";
 
 import gambar1 from "../asset/foto1.jpg";
+import { useSelector } from "react-redux";
+import userReducer from "../redux/auth";
 
 export default function Navbar() {
+	const userSelector = useSelector((state) => state.auth);
+
 	return (
 		<div className="Container1_Mikhael">
 			<div className="Container2_Mikhael">
