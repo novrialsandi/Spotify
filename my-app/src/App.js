@@ -3,7 +3,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 // import { BrowserRouter } from "react-router-dom";
 // import { ChakraProvider } from "@chakra-ui/react";
-
+import Loginpage from "./pages/LoginPage";
 import Homepage from "./pages/HomePage";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
 		<>
 			<Routes>
 				<Route path="/home" element={<Homepage />}></Route>
+				<Route path="/login" element={<Loginpage />}></Route>
 			</Routes>
 		</>
 	);

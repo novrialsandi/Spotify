@@ -1,8 +1,3 @@
-* {
-	/* background-color: #161616; */
-	color: white;
-}
-
 #BG {
 	width: 100vw;
 	height: 100vh;
@@ -386,6 +381,11 @@
 	height: 40px;
 	align-items: center;
 	gap: 20px;
+	color: #9d9187;
+}
+
+.flexS:hover {
+	color: white;
 }
 
 .flexS div {
@@ -394,13 +394,13 @@
 	align-items: center;
 }
 
-div {
+.divS {
 	color: #9d9187;
-	/* width: 100%; */
+	width: 100%;
 	align-items: center;
 }
 
-div:hover {
+.divS:hover {
 	color: white;
 }
 
