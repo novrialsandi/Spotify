@@ -13,11 +13,26 @@ import {
 } from "@chakra-ui/react";
 import { BsApple, BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { TbAlertCircleFilled } from "react-icons/tb";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
+	const nav = useNavigate();
+	const [account, setAccount] = useState({ email: "", password: "" });
+
+	function inputHandler(event) {
+		const { value, id } = event.target;
+		const tempAccount = { ...account };
+		tempAccount[id] = value;
+		setAccount(tempAccount);
+	}
+
 	const [seePassword, setSeePassword] = useState(false);
+
+	function login() {
+		nav("/home");
+	}
+
 	return (
 		<>
 			<Center flexDir={"column"} w={"100vw"} gap={"40x"}>
@@ -81,7 +96,7 @@ export default function LoginPage() {
 						bgColor={"white"}
 					>
 						<Icon w={"20px"} h={"20px"} as={FcGoogle}></Icon>
-						<Center color={"black"}>CONTINUE WITH GOOGLE</Center>
+						<Center>CONTINUE WITH GOOGLE</Center>
 					</Center>
 
 					<Center
@@ -95,9 +110,7 @@ export default function LoginPage() {
 						border={"1px solid #A5A5A5"}
 						bgColor={"white"}
 					>
-						<Center color={"black"}>
-							CONTINUE WITH PHONE NUMBER
-						</Center>
+						<Center>CONTINUE WITH PHONE NUMBER</Center>
 					</Center>
 
 					<Center
@@ -133,6 +146,8 @@ export default function LoginPage() {
 								Email address or username
 							</Box>
 							<Input
+								onChange={inputHandler}
+								id="email"
 								w={"100%"}
 								h={"48px"}
 								placeholder="Email addrress or username"
@@ -150,6 +165,8 @@ export default function LoginPage() {
 							</Box>
 							<InputGroup size={"md"}>
 								<Input
+									onChange={inputHandler}
+									id="password"
 									w={"100%"}
 									h={"48px"}
 									placeholder="Password"
@@ -203,6 +220,7 @@ export default function LoginPage() {
 							bgColor={"#1ED760"}
 							h={"48px"}
 							w={"121px"}
+							onClick={login}
 						>
 							LOG IN
 						</Center>

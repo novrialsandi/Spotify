@@ -3,7 +3,6 @@
 	height: 100vh;
 	background-color: #0c0c0c;
 	position: fixed;
-	/* z-index: 0; */
 }
 
 .pembungkusBungkus_Mikhael {
@@ -366,7 +365,6 @@
 
 .logoS {
 	width: 130px;
-
 	background-color: black;
 }
 
@@ -394,13 +392,13 @@
 	align-items: center;
 }
 
-.divS {
+#boxPlaylistS div {
 	color: #9d9187;
 	width: 100%;
 	align-items: center;
 }
 
-.divS:hover {
+#boxPlaylistS div:hover {
 	color: white;
 }
 

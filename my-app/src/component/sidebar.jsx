@@ -44,25 +44,22 @@ export default function Sidebar() {
 			</Box>
 			<Box>
 				<Box id="boxPlaylistS">
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
-					<div className="divS">Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
+					<div>Playlist</div>
 				</Box>
 			</Box>
 		</Box>
