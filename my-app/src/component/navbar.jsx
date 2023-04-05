@@ -1,4 +1,3 @@
-import { Box, Stack } from "@chakra-ui/react";
 import "../css/spotify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,7 +9,6 @@ import { Button } from "@chakra-ui/react";
 
 import gambar1 from "../asset/foto1.jpg";
 import { useSelector } from "react-redux";
-import userReducer from "../redux/auth";
 
 export default function Navbar() {
 	const userSelector = useSelector((state) => state.auth);
@@ -47,7 +45,7 @@ export default function Navbar() {
 						<div className="Gambar2_Mikhael">
 							<img src={gambar1} alt="" />
 						</div>
-						<p>Mikhael Wellm... </p>
+						<p>{userSelector.email}</p>
 						<FontAwesomeIcon
 							icon={faCaretDown}
 							style={{ color: "#ffffff" }}

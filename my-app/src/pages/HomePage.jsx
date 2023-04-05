@@ -13,12 +13,13 @@ export default function Homepage(props) {
 	let nav = useNavigate();
 
 	useEffect(() => {
+		const user = JSON.parse(localStorage.getItem("user"));
 		// masuk sini pada saat load page
-		setTimeout(() => setLoading(false), 1000);
 
-		if (props.user !== "sand") {
-			nav("/login");
+		if (!user?.email) {
+			return nav("/login");
 		}
+		setTimeout(() => setLoading(false), 1000);
 	}, []);
 
 	return (

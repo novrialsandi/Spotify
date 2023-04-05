@@ -15,14 +15,22 @@ import { BsApple, BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { auth_types } from "../redux/types";
 
 export default function LoginPage() {
 	const nav = useNavigate();
+	const dispatch = useDispatch();
+
 	const [account, setAccount] = useState({ email: "", password: "" });
 
 	useEffect(() => {
 		console.log("ada ketikan password baru");
 	}, [account.password]);
+
+	// 	const user = JSON.parse(localStorage.getItem())
+	// 	if(user?.email && user?.password )
+	// }, []);
 
 	function inputHandler(event) {
 		const { value, id } = event.target;
@@ -34,7 +42,17 @@ export default function LoginPage() {
 	const [seePassword, setSeePassword] = useState(false);
 
 	function login() {
-		nav("/home");
+		if (account.email && account.password) {
+			dispatch({
+				type: auth_types.login,
+				payload: account,
+			});
+
+			localStorage.setItem("user", JSON.stringify(account));
+
+			return nav("/home");
+		}
+		alert("wajib isi email & password");
 	}
 
 	return (

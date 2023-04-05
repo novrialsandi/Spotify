@@ -5,14 +5,12 @@ import { Route, Routes } from "react-router-dom";
 // import { ChakraProvider } from "@chakra-ui/react";
 import Loginpage from "./pages/LoginPage";
 import Homepage from "./pages/HomePage";
+import routes from "./routes/Routes";
 
 function App() {
 	return (
 		<>
-			<Routes>
-				<Route path="/home" element={<Homepage user="sand" />}></Route>
-				<Route path="/login" element={<Loginpage />}></Route>
-			</Routes>
+			<Routes>{routes.map((val) => val)}</Routes>
 		</>
 	);
 }
