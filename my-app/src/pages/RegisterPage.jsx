@@ -17,12 +17,16 @@ import {
 import { BsApple, BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { auth_types } from "../redux/types";
 import { TbAlertCircleFilled } from "react-icons/tb";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import { YupPassword } from "yup-password";
 
 export default function RegisterPage() {
+	// YupPassword(Yup);
 	const [seePassword, setSeePassword] = useState(false);
 	const month = [
 		{
@@ -77,16 +81,49 @@ export default function RegisterPage() {
 
 	const [account, setAccount] = useState({ email: "", password: "" });
 
+	const formik = useFormik({
+		initialValues: {
+			email: "",
+			email2: "",
+			password: "",
+			name: "",
+			day: "",
+			month: "",
+			year: "",
+			gender: "Male",
+		},
+		validationSchema: Yup.object().shape({
+			email: Yup.string()
+				.required("you need to enter your email.")
+				.email(
+					"This email is invalid. Make sure it's written like example@email.com."
+				),
+			email2: Yup.string()
+				.required("You need to confirm your email.")
+				.oneOf([Yup.ref("email"), "The email addresses don't match."]),
+			password: Yup.string().min(8, "Your password is too short."),
+			name: Yup.string().required("Enter a name for your profile."),
+			day: Yup.number("Enter a valid day of month.")
+				.moreThan(0, "Enter a valid dat of month.")
+				.lessThan(32, "Enter a valid day of the month."),
+			month: Yup.string().required("Select your birth month."),
+			year: Yup.number()
+				.required("Enter a valid year.")
+				.moreThan(0, "Enter a valid year."),
+		}),
+		onSubmit: () => {
+			console.log(formik.values);
+		},
+	});
+
 	function inputHandler(event) {
 		const { value, id } = event.target;
-		const tempAccount = { ...account };
-		tempAccount[id] = value;
-		setAccount(tempAccount);
+		formik.setFieldValue(id, value);
 	}
 
 	return (
 		<>
-			<Center flexDir={"column"} w={"100vw"} gap={"40x"}>
+			<Center flexDir={"column"} w={"100vw"} gap={"40x"} pb={"10%"}>
 				<Center
 					width={"100%"}
 					paddingTop={"25px"}
@@ -183,13 +220,16 @@ export default function RegisterPage() {
 								h={"48px"}
 								placeholder="Enter your email"
 							></Input>
-							<Box color={"red"}>
+							<Box
+								color={"red"}
+								display={formik.errors.email ? "box" : "none"}
+							>
 								<Icon
 									as={TbAlertCircleFilled}
 									w="16px"
 									h={"16px"}
 								></Icon>
-								You need enter your email
+								{formik.errors.email}
 							</Box>
 							<Box color={"#117a37"} textDecor={"underline"}>
 								Use phone number instead
@@ -205,18 +245,21 @@ export default function RegisterPage() {
 							<Box fontWeight={"700"}>Confirm your email.</Box>
 							<Input
 								onChange={inputHandler}
-								id="re-email"
+								id="email2"
 								w={"100%"}
 								h={"48px"}
 								placeholder="Enter your email again."
 							></Input>
-							<Box color={"red"}>
+							<Box
+								color={"red"}
+								display={formik.errors.email2 ? "box" : "none"}
+							>
 								<Icon
 									as={TbAlertCircleFilled}
 									w="16px"
 									h={"16px"}
 								></Icon>
-								You need confirm your email
+								{formik.errors.email2}
 							</Box>
 						</Box>
 
@@ -254,8 +297,18 @@ export default function RegisterPage() {
 								</InputRightElement>
 							</InputGroup>
 
-							<Box color={"red"}>
-								You need to enter a password
+							<Box
+								color={"red"}
+								display={
+									formik.errors.password ? "box" : "none"
+								}
+							>
+								<Icon
+									as={TbAlertCircleFilled}
+									w="16px"
+									h={"16px"}
+								></Icon>
+								{formik.errors.password}
 							</Box>
 						</Box>
 						<Box
@@ -269,18 +322,21 @@ export default function RegisterPage() {
 							</Box>
 							<Input
 								onChange={inputHandler}
-								id="profile"
+								id="name"
 								w={"100%"}
 								h={"48px"}
-								placeholder="Enter a profile name"
+								placeholder="Enter a Profile name"
 							></Input>
-							<Box color={"red"}>
+							<Box
+								color={"red"}
+								display={formik.errors.name ? "box" : "none"}
+							>
 								<Icon
 									as={TbAlertCircleFilled}
 									w="16px"
 									h={"16px"}
 								></Icon>
-								Enter a name to confirm your profile
+								{formik.errors.name}
 							</Box>
 						</Box>
 						<Box
@@ -290,7 +346,7 @@ export default function RegisterPage() {
 							gap={"5px"}
 						>
 							<Box fontWeight={"700"}>
-								What should we call you?
+								What your date of birth?
 							</Box>
 							<Flex>
 								<Input
@@ -302,12 +358,12 @@ export default function RegisterPage() {
 								></Input>
 								{/* <Input
 								onChange={inputHandler}
-								id="profile"
+								id="name"
 								w={"40%"}
 								h={"48px"}
-								placeholder="Enter a profile name"
+								placeholder="Enter a name name"
 							></Input> */}
-								<Select placeholder="Month">
+								<Select placeholder="Month" id="month">
 									{month.map((val) => (
 										<option value={val.number}>
 											{val.name}
@@ -322,29 +378,40 @@ export default function RegisterPage() {
 									placeholder="YYYY"
 								></Input>
 							</Flex>
-							<Box color={"red"}>
+							<Box
+								color={"red"}
+								display={formik.errors.day ? "box" : "none"}
+							>
 								<Icon
 									as={TbAlertCircleFilled}
 									w="16px"
 									h={"16px"}
 								></Icon>
-								Enter a valid day of the month
+
+								{formik.errors.day}
 							</Box>
-							<Box color={"red"}>
-								<Icon
+							<Box
+								color={"red"}
+								// display={formik.errors.month ? "box" : "none"}
+							>
+								{/* <Icon
 									as={TbAlertCircleFilled}
 									w="16px"
 									h={"16px"}
 								></Icon>
-								Select your birth of month
+								{formik.errors.month} */}
 							</Box>
-							<Box color={"red"}>
+							<Box
+								color={"red"}
+								display={formik.errors.year ? "box" : "none"}
+							>
 								<Icon
 									as={TbAlertCircleFilled}
 									w="16px"
 									h={"16px"}
 								></Icon>
-								Enter a valid year
+
+								{formik.errors.year}
 							</Box>
 						</Box>
 					</Flex>
@@ -353,16 +420,17 @@ export default function RegisterPage() {
 						maxW={"450px"}
 						flexDir={"column"}
 						gap={"5px"}
+						id="gender"
 					>
 						<Box color={"black"} fontWeight={"700"}>
 							What's your gender?
 						</Box>
 						{/* <Input
 							onChange={inputHandler}
-							id="profile"
+							id="name"
 							w={"100%"}
 							h={"48px"}
-							placeholder="Enter a profile name"
+							placeholder="Enter a name name"
 						></Input> */}
 						<RadioGroup defaultValue="Male" color={"black"}>
 							<Flex
@@ -477,14 +545,22 @@ export default function RegisterPage() {
 						h={"48px"}
 						w={"121px"}
 						color={"black"}
+						onClick={formik.handleSubmit}
 					>
 						Sign up
 					</Center>
-					<Center fontSize={"11px"} gap={"11px"} color={"black"}>
+					<Center
+						pt={"10px"}
+						fontSize={"11px"}
+						gap={"11px"}
+						color={"black"}
+					>
 						Have an account?
-						<Flex color={"green"} textDecor={"underline"}>
-							Log in.
-						</Flex>
+						<Link to={"/login"}>
+							<Flex color={"green"} textDecor={"underline"}>
+								Log in.
+							</Flex>
+						</Link>
 					</Center>
 				</Center>
 			</Center>

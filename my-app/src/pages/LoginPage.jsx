@@ -14,7 +14,7 @@ import {
 import { BsApple, BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { auth_types } from "../redux/types";
 
@@ -57,7 +57,7 @@ export default function LoginPage() {
 
 	return (
 		<>
-			<Center flexDir={"column"} w={"100vw"} gap={"40x"}>
+			<Center pb={"10%"} flexDir={"column"} w={"100vw"} gap={"40x"}>
 				<Center
 					width={"100%"}
 					paddingTop={"25px"}
@@ -274,7 +274,9 @@ export default function LoginPage() {
 						border={"1px solid #A5A5A5"}
 						bgColor={"white"}
 					>
-						<Center>CONTINUE WITH PHONE NUMBER</Center>
+						<Link to={"/registerpage"}>
+							<Center>SIGN UP FOR SPOTIFY</Center>
+						</Link>
 					</Center>
 				</Center>
 			</Center>
