@@ -55,7 +55,7 @@ export default function Navbar() {
 						<div className="Gambar2_Mikhael">
 							<img src={gambar1} alt="" />
 						</div>
-						<p>{userSelector.name}</p>
+						<p id="username">{userSelector.name}</p>
 						<FontAwesomeIcon
 							icon={faCaretDown}
 							style={{ color: "#ffffff" }}

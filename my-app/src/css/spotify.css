@@ -5,6 +5,10 @@
 	position: fixed;
 }
 
+#username {
+	color: white;
+}
+
 .pembungkusBungkus_Mikhael {
 	display: flex;
 	width: 100%;
