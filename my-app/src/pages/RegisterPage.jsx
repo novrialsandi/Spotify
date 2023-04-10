@@ -80,6 +80,8 @@ export default function RegisterPage() {
 		},
 	];
 
+	const nav = useNavigate();
+
 	const [account, setAccount] = useState({ email: "", password: "" });
 
 	const formik = useFormik({
@@ -117,11 +119,7 @@ export default function RegisterPage() {
 			const { email, name, password, year, month, day, gender } =
 				formik.values;
 			const account = { email, name, password, gender };
-			account.birthdate = new Date(
-				account.year,
-				account.month,
-				account.day
-			);
+			account.birthdate = new Date(year, month, day);
 			const checkEmail = await axios
 				.get("http://localhost:2000/user", {
 					params: { email: account.email },
@@ -136,7 +134,11 @@ export default function RegisterPage() {
 			if (checkEmail) {
 				return alert("email already used");
 			} else {
-				await axios.post("http://localhost:2000/user");
+				await axios
+					.post("http://localhost:2000/user", account)
+					.then((res) => {
+						nav("/login");
+					});
 			}
 		},
 	});
@@ -381,14 +383,11 @@ export default function RegisterPage() {
 									w={"100%"}
 									placeholder="DD"
 								></Input>
-								{/* <Input
-								onChange={inputHandler}
-								id="name"
-								w={"40%"}
-								h={"48px"}
-								placeholder="Enter a name name"
-							></Input> */}
-								<Select placeholder="Month" id="month">
+								<Select
+									placeholder="Month"
+									id="month"
+									onChange={inputHandler}
+								>
 									{month.map((val) => (
 										<option value={val.number}>
 											{val.name}
@@ -417,14 +416,14 @@ export default function RegisterPage() {
 							</Box>
 							<Box
 								color={"red"}
-								// display={formik.errors.month ? "box" : "none"}
+								display={formik.errors.month ? "box" : "none"}
 							>
-								{/* <Icon
+								<Icon
 									as={TbAlertCircleFilled}
 									w="16px"
 									h={"16px"}
 								></Icon>
-								{formik.errors.month} */}
+								{formik.errors.month}
 							</Box>
 							<Box
 								color={"red"}
@@ -450,13 +449,7 @@ export default function RegisterPage() {
 						<Box color={"black"} fontWeight={"700"}>
 							What's your gender?
 						</Box>
-						{/* <Input
-							onChange={inputHandler}
-							id="name"
-							w={"100%"}
-							h={"48px"}
-							placeholder="Enter a name name"
-						></Input> */}
+
 						<RadioGroup defaultValue="Male" color={"black"}>
 							<Flex
 								w={"100%"}

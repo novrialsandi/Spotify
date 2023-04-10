@@ -54,9 +54,9 @@ export default function LoginPage() {
 				if (res.data.length) {
 					dispatch({
 						type: auth_types.login,
-						payload: account,
+						payload: res.data[0],
 					});
-					localStorage.setItem("user", JSON.stringify(account));
+					localStorage.setItem("user", JSON.stringify(res.data[0]));
 					return nav("/home");
 				} else {
 					alert("email/password salah");
