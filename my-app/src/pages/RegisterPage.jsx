@@ -24,6 +24,7 @@ import { TbAlertCircleFilled } from "react-icons/tb";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { YupPassword } from "yup-password";
+import axios from "axios";
 
 export default function RegisterPage() {
 	// YupPassword(Yup);
@@ -111,8 +112,32 @@ export default function RegisterPage() {
 				.required("Enter a valid year.")
 				.moreThan(0, "Enter a valid year."),
 		}),
-		onSubmit: () => {
-			console.log(formik.values);
+		onSubmit: async () => {
+			// console.log(formik.values);
+			const { email, name, password, year, month, day, gender } =
+				formik.values;
+			const account = { email, name, password, gender };
+			account.birthdate = new Date(
+				account.year,
+				account.month,
+				account.day
+			);
+			const checkEmail = await axios
+				.get("http://localhost:2000/user", {
+					params: { email: account.email },
+				})
+				.then((res) => {
+					if (res.data.length) {
+						return true;
+					} else {
+						return false;
+					}
+				});
+			if (checkEmail) {
+				return alert("email already used");
+			} else {
+				await axios.post("http://localhost:2000/user");
+			}
 		},
 	});
 

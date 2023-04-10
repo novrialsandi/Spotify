@@ -157,7 +157,9 @@
 	align-items: center;
 	gap: 10px;
 }
-
+.Profil_Mikhael div {
+	color: white;
+}
 .RightLeft_Mikhael {
 	display: flex;
 	width: 80px;

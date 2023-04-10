@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { auth_types } from "../redux/types";
+import axios from "axios";
 
 export default function LoginPage() {
 	const nav = useNavigate();
@@ -24,9 +25,7 @@ export default function LoginPage() {
 
 	const [account, setAccount] = useState({ email: "", password: "" });
 
-	useEffect(() => {
-		console.log("ada ketikan password baru");
-	}, [account.password]);
+	useEffect(() => {}, [account.password]);
 
 	// 	const user = JSON.parse(localStorage.getItem())
 	// 	if(user?.email && user?.password )
@@ -41,16 +40,28 @@ export default function LoginPage() {
 
 	const [seePassword, setSeePassword] = useState(false);
 
-	function login() {
-		dispatch({
-			type: auth_types.login,
-			payload: account,
-		});
-
-		localStorage.setItem("user", JSON.stringify(account));
-
-		return nav("/home");
-		alert("wajib isi email & password");
+	async function login() {
+		//karena butuh waktu untuk mendapatkan data dari API
+		//maka function dibuat menjadi async
+		await axios
+			.get("http://localhost:2000/user", {
+				params: {
+					email: account.email.toLowerCase(),
+					password: account.password,
+				},
+			})
+			.then((res) => {
+				if (res.data.length) {
+					dispatch({
+						type: auth_types.login,
+						payload: account,
+					});
+					localStorage.setItem("user", JSON.stringify(account));
+					return nav("/home");
+				} else {
+					alert("email/password salah");
+				}
+			});
 	}
 
 	return (
