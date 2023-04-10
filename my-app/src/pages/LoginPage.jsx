@@ -42,16 +42,14 @@ export default function LoginPage() {
 	const [seePassword, setSeePassword] = useState(false);
 
 	function login() {
-		if (account.email && account.password) {
-			dispatch({
-				type: auth_types.login,
-				payload: account,
-			});
+		dispatch({
+			type: auth_types.login,
+			payload: account,
+		});
 
-			localStorage.setItem("user", JSON.stringify(account));
+		localStorage.setItem("user", JSON.stringify(account));
 
-			return nav("/home");
-		}
+		return nav("/home");
 		alert("wajib isi email & password");
 	}
 
