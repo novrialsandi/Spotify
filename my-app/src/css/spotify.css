@@ -66,6 +66,7 @@
 /* Tengah  */
 .tengah_Mikhael {
 	display: grid;
+	color: white;
 }
 
 .tombolAtas_Mikhael {
@@ -116,6 +117,7 @@
 
 	justify-content: right;
 	gap: 20px;
+	color: white;
 }
 
 .isiKanan_Mikhael {

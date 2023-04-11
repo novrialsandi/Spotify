@@ -8,7 +8,7 @@ import {
 	SliderMark,
 } from "@chakra-ui/react";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faHeart,
@@ -25,9 +25,23 @@ import { MdSpeakerGroup } from "react-icons/md";
 import { HiSpeakerWave } from "react-icons/hi2";
 
 export default function Playbar(props) {
+	const [audio, setAudio] = useState({});
 	useEffect(() => {
 		console.log(props.playlist);
+		soundTrack();
 	}, [props.playlist]);
+
+	function soundTrack() {
+		if (props.playlist?.length) {
+			const tempAudio = new Audio(
+				require("../assets/audio/" + props.playlist[0].src)
+			);
+			// tempAudio.addEventListener("loadedmetadata", function () {
+			// 	SVGAnimatedEnumeration(tempAudio.duration);
+			// });
+			setAudio(tempAudio);
+		}
+	}
 
 	return (
 		<div className="playbar1_Mikhael">
@@ -79,6 +93,9 @@ export default function Playbar(props) {
 											"--fa-primary-color": "#000714",
 											"--fa-secondary-color": "#ffffff",
 										}}
+										// onClick={()=> play(!pause)}
+										onClick={() => audio?.play()}
+										cursor={"pointer"}
 									/>
 								</div>
 								<div>
