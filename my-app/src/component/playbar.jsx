@@ -8,7 +8,7 @@ import {
 	SliderMark,
 } from "@chakra-ui/react";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faHeart,
@@ -24,7 +24,11 @@ import {
 import { MdSpeakerGroup } from "react-icons/md";
 import { HiSpeakerWave } from "react-icons/hi2";
 
-export default function Playbar() {
+export default function Playbar(props) {
+	useEffect(() => {
+		console.log(props.playlist);
+	}, [props.playlist]);
+
 	return (
 		<div className="playbar1_Mikhael">
 			<div className="pembungkus_Mikhael">

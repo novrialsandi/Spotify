@@ -6,6 +6,7 @@ import Bg from "../component/bg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Center, Spinner } from "@chakra-ui/react";
+import axios from "axios";
 
 export default function Homepage(props) {
 	const [loading, setLoading] = useState(true);
@@ -22,6 +23,18 @@ export default function Homepage(props) {
 		setTimeout(() => setLoading(false), 1000);
 	}, []);
 
+	const [playlist, setPlaylist] = useState([]);
+
+	async function fetchData() {
+		await axios
+			.get("http://localhost:2000/music")
+			.then((res) => setPlaylist(res.data));
+	}
+
+	useEffect(() => {
+		fetchData();
+	}, []);
+
 	return (
 		<>
 			{loading ? (
@@ -33,7 +46,7 @@ export default function Homepage(props) {
 					<Bg />
 					<Content />
 					<Navbar />
-					<Playbar />
+					<Playbar key="playbar" playlist={playlist} />
 					<Sidebar />
 				</>
 			)}

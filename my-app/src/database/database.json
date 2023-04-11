@@ -39,5 +39,35 @@
 			"judul": "makan",
 			"desc": "makan bareng"
 		}
+	],
+	"music": [
+		{
+			"id": 1,
+			"title": "EDGING",
+			"singer": "blink-182",
+			"src": "blink-182 - EDGING.mp3",
+			"img": "https://i.scdn.co/image/ab67616d0000b273992db40efc4367bebea586f7"
+		},
+		{
+			"id": 2,
+			"title": "I Will Survive",
+			"singer": "Gloria Gaynor",
+			"src": "Gloria Gaynor - I Will Survive.mp3",
+			"img": "https://i.scdn.co/image/ab67616d0000b273dbf1428f6a9e4aba87d37296"
+		},
+		{
+			"id": 3,
+			"title": "Anymore",
+			"singer": "JEON SOMI (전소미)",
+			"src": "JEON SOMI (전소미) - Anymore.mp3",
+			"img": "https://i.scdn.co/image/ab67616d0000b273567e4a23788ec80a43a1bc09"
+		},
+		{
+			"id": 4,
+			"title": "Fall Back Down",
+			"singer": "RANCID",
+			"src": "RANCID - Fall Back Down.mp3",
+			"img": "https://i.scdn.co/image/ab67616d00001e025412c46b93d275c1c51e00a1"
+		}
 	]
 }
