@@ -1,36 +1,43 @@
 {
-  "user": [
-    {
-      "id": 1,
-      "name": "test",
-      "email": "test@mail.com",
-      "password": "12345678",
-      "birthdate": "",
-      "gender": "female"
-    },
-    {
-      "id": 2,
-      "name": "test2",
-      "email": "test2@mail.com",
-      "password": "12345678",
-      "birthdate": "",
-      "gender": "female"
-    },
-    {
-      "name": "ujang",
-      "email": "test3@mail.com",
-      "password": "12345678",
-      "birthdate": "",
-      "gender": "female",
-      "id": 3
-    },
-    {
-      "email": "novrialsandi@gmail.com",
-      "name": "novrialsandi",
-      "password": "12345678",
-      "gender": "Male",
-      "birthdate": "1997-11-30T17:00:00.000Z",
-      "id": 4
-    }
-  ]
+	"user": [
+		{
+			"id": 1,
+			"name": "test",
+			"email": "test@mail.com",
+			"password": "12345678",
+			"birthdate": "",
+			"gender": "female"
+		},
+		{
+			"id": 2,
+			"name": "test2",
+			"email": "test2@mail.com",
+			"password": "12345678",
+			"birthdate": "",
+			"gender": "female"
+		},
+		{
+			"name": "ujang",
+			"email": "test3@mail.com",
+			"password": "12345678",
+			"birthdate": "",
+			"gender": "female",
+			"id": 3
+		},
+		{
+			"email": "novrialsandi@gmail.com",
+			"name": "novrialsandi",
+			"password": "12345678",
+			"gender": "Male",
+			"birthdate": "1997-11-30T17:00:00.000Z",
+			"id": 4
+		}
+	],
+	"todo": [
+		{
+			"date": "",
+			"judul": "makan",
+			"desc": "makan bareng"
+		}
+	]
 }
