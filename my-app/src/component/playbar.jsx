@@ -20,27 +20,65 @@ import {
 	faShuffle,
 	faMicrophone,
 	faBars,
+	faCirclePause,
 } from "@fortawesome/free-solid-svg-icons";
 import { MdSpeakerGroup } from "react-icons/md";
 import { HiSpeakerWave } from "react-icons/hi2";
 
 export default function Playbar(props) {
 	const [audio, setAudio] = useState({});
+	const [duration, setDuration] = useState(0);
+	const [counter, setCounter] = useState(0);
+	const [pause, setPause] = useState(true);
+	const [currentTime, setCurrentTime] = useState(0);
+
 	useEffect(() => {
 		console.log(props.playlist);
 		soundTrack();
 	}, [props.playlist]);
+
+	useEffect(() => {
+		updateTime();
+	}, [currentTime]);
+
+	async function updateTime() {
+		if (currentTime == audio.duration && audio.duration) {
+			setCounter(counter + 1);
+			// return await changeSong(counter + 1);
+			return;
+		}
+		const promise = new Promise((resolve) => {
+			setTimeout(() => {
+				if (!pause) {
+					resolve(setCurrentTime(audio.currentTime));
+				}
+			}, 500);
+		});
+		return await promise;
+	}
 
 	function soundTrack() {
 		if (props.playlist?.length) {
 			const tempAudio = new Audio(
 				require("../assets/audio/" + props.playlist[0].src)
 			);
-			// tempAudio.addEventListener("loadedmetadata", function () {
-			// 	SVGAnimatedEnumeration(tempAudio.duration);
-			// });
+			tempAudio.addEventListener("loadedmetadata", function () {
+				setDuration(tempAudio.duration);
+				console.log(tempAudio.duration);
+			});
+
 			setAudio(tempAudio);
 		}
+	}
+
+	function play(status) {
+		setPause(status);
+		if (!status) {
+			audio.play();
+			setTimeout(() => setCurrentTime(audio.currentTime), 500);
+			return;
+		}
+		audio.pause();
 	}
 
 	return (
@@ -88,13 +126,17 @@ export default function Playbar(props) {
 								</div>
 								<div className="playButton_Mikhael">
 									<FontAwesomeIcon
-										icon={faCirclePlay}
+										icon={
+											audio.paused
+												? faCirclePlay
+												: faCirclePause
+										}
 										style={{
 											"--fa-primary-color": "#000714",
 											"--fa-secondary-color": "#ffffff",
 										}}
-										// onClick={()=> play(!pause)}
-										onClick={() => audio?.play()}
+										onClick={() => play(!pause)}
+										// onClick={() => audio?.play()}
 										cursor={"pointer"}
 									/>
 								</div>
@@ -111,19 +153,50 @@ export default function Playbar(props) {
 						</div>
 						<div className="tombolBawah_Mikhael">
 							<div className="slider_Mikhael">
-								<p>01:23</p>
+								<p>
+									{Math.floor(audio.currentTime / 60)}:
+									{Math.floor(audio.currentTime % 60) > 9
+										? Math.floor(audio.currentTime % 60)
+										: "0" +
+										  Math.floor(audio.currentTime % 60)}
+								</p>
 
 								<Slider
 									aria-label="slider-ex-1"
-									defaultValue={10}
+									defaultValue={0}
 									width={430}
+									value={
+										Math.round(audio?.currentTime * 100) /
+										audio?.duration
+									}
+									onChange={(val) => {
+										let changeDur = val / 100;
+										if (audio.duration) {
+											changeDur *= audio.duration;
+										}
+										audio.currentTime = changeDur;
+										setCurrentTime(audio?.currentTime);
+									}}
+									// onChange={(val) => {
+									// 	let changeDur = val / 100;
+									// 	if (audio.duration) {
+									// 		changeDur *= audio.duration;
+									// 	}
+									// 	audio.currentTime = changeDur;
+									// 	setCurrentTime(audio?.currentTime);
+									// }}
 								>
 									<SliderTrack>
 										<SliderFilledTrack />
 									</SliderTrack>
 									<SliderThumb />
 								</Slider>
-								<p>04:20</p>
+								<p>
+									{Math.floor(duration / 60)}:
+									{Math.floor(duration % 60) > 9
+										? Math.floor(duration % 60)
+										: "0" + Math.floor(duration % 60)}
+								</p>
 							</div>
 						</div>
 					</div>
@@ -143,8 +216,9 @@ export default function Playbar(props) {
 
 							<Slider
 								aria-label="slider-ex-1"
-								defaultValue={10}
 								width={100}
+								defaultValue={audio?.volume * 100}
+								onChange={(vol) => (audio.volume = vol / 100)}
 							>
 								<SliderTrack>
 									<SliderFilledTrack />
