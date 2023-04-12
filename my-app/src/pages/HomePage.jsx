@@ -10,6 +10,7 @@ import axios from "axios";
 
 export default function Homepage(props) {
 	const [loading, setLoading] = useState(true);
+	const [home_playlist, setHome_playlist] = useState([]);
 
 	let nav = useNavigate();
 
@@ -29,6 +30,9 @@ export default function Homepage(props) {
 		await axios
 			.get("http://localhost:2000/music")
 			.then((res) => setPlaylist(res.data));
+		await axios
+			.get("http://localhost:2000/playlist")
+			.then((res) => setHome_playlist(res.data));
 	}
 
 	useEffect(() => {
@@ -44,7 +48,7 @@ export default function Homepage(props) {
 			) : (
 				<>
 					<Bg />
-					<Content />
+					<Content data={home_playlist} setPlaylist={setPlaylist} />
 					<Navbar />
 					<Playbar key="playbar" playlist={playlist} />
 					<Sidebar />

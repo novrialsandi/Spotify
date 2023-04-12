@@ -32,9 +32,19 @@ export default function Playbar(props) {
 	const [pause, setPause] = useState(true);
 	const [currentTime, setCurrentTime] = useState(0);
 
+	function changePlaylist() {
+		setTimeout(() => setCurrentTime(audio?.currentTime), 500);
+
+		if (audio.src) {
+			setCounter(0);
+			changeSong(0);
+		} else {
+			soundTrack();
+		}
+	}
+
 	useEffect(() => {
-		console.log(props.playlist);
-		soundTrack();
+		changePlaylist();
 	}, [props.playlist]);
 
 	useEffect(() => {
@@ -44,8 +54,7 @@ export default function Playbar(props) {
 	async function updateTime() {
 		if (currentTime == audio.duration && audio.duration) {
 			setCounter(counter + 1);
-			// return await changeSong(counter + 1);
-			return;
+			return await changeSong(counter + 1);
 		}
 		const promise = new Promise((resolve) => {
 			setTimeout(() => {
@@ -81,18 +90,47 @@ export default function Playbar(props) {
 		audio.pause();
 	}
 
+	async function changeSong(track) {
+		if (track > props.playlist.length - 1 || track < 0) {
+			track = 0;
+		}
+		setCounter(track);
+		audio.src = require("../assets/audio/" + props.playlist[track].src);
+
+		return audio.play().finally(() => {
+			setPause(false);
+			updateTime();
+		});
+	}
+
 	return (
 		<div className="playbar1_Mikhael">
 			<div className="pembungkus_Mikhael">
 				<div className="pembungkusBungkus_Mikhael">
 					<div className="kiri_Mikhael">
 						<div className="gambar_Mikhael">
-							<img src={gambar} alt="" srcset="" />
+							<img
+								src={
+									props.playlist?.length
+										? props.playlist[counter]?.img
+										: null
+								}
+								alt=""
+								srcset=""
+							/>
 						</div>
 						<div className="judullagu_Mikhael">
 							<div className="judullagu2_Mikhael">
-								<p>Monokrom</p>
-								<p>Tulus</p>
+								<p>
+									{props.playlist?.length
+										? props.playlist[counter]?.title
+										: null}
+								</p>
+								<p>
+									{props.playlist?.length
+										? props.playlist[counter]?.singer
+										: null}
+								</p>
 							</div>
 							{/* logo */}
 							<div className="logo_Mikhael">
@@ -122,6 +160,11 @@ export default function Playbar(props) {
 									<FontAwesomeIcon
 										icon={faBackwardStep}
 										style={{ color: "#ffffff" }}
+										onClick={async () => {
+											setCounter(counter - 1);
+											await changeSong(counter - 1);
+										}}
+										cursor={"pointer"}
 									/>
 								</div>
 								<div className="playButton_Mikhael">
@@ -136,7 +179,6 @@ export default function Playbar(props) {
 											"--fa-secondary-color": "#ffffff",
 										}}
 										onClick={() => play(!pause)}
-										// onClick={() => audio?.play()}
 										cursor={"pointer"}
 									/>
 								</div>
@@ -144,6 +186,11 @@ export default function Playbar(props) {
 									<FontAwesomeIcon
 										icon={faForwardStep}
 										style={{ color: "#ffffff" }}
+										onClick={async () => {
+											setCounter(counter + 1);
+											await changeSong(counter + 1);
+										}}
+										cursor={"pointer"}
 									/>
 								</div>
 								<div>

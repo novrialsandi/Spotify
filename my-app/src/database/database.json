@@ -69,5 +69,75 @@
 			"src": "RANCID - Fall Back Down.mp3",
 			"img": "https://i.scdn.co/image/ab67616d00001e025412c46b93d275c1c51e00a1"
 		}
+	],
+	"playlist": [
+		{
+			"id": 1,
+			"type": "",
+			"createdBy": "novrialsandi",
+			"imgURL": "https://i.scdn.co/image/ab6761610000e5ebd624c3bdcf79aeac5190479d",
+			"playlist": "Playlist 1",
+			"desc": "blink-182, Gloria Gaynor, JEON SOMI (전소미) and more",
+			"list": [
+				{
+					"title": "EDGING",
+					"singer": "blink-182",
+					"src": "blink-182 - EDGING.mp3",
+					"img": "https://i.scdn.co/image/ab67616d0000b273992db40efc4367bebea586f7"
+				},
+				{
+					"title": "I Will Survive",
+					"singer": "Gloria Gaynor",
+					"src": "Gloria Gaynor - I Will Survive.mp3",
+					"img": "https://i.scdn.co/image/ab67616d0000b273dbf1428f6a9e4aba87d37296"
+				},
+				{
+					"title": "Anymore",
+					"singer": "JEON SOMI (전소미)",
+					"src": "JEON SOMI (전소미) - Anymore.mp3",
+					"img": "https://i.scdn.co/image/ab67616d0000b273567e4a23788ec80a43a1bc09"
+				},
+				{
+					"title": "Fall Back Down",
+					"singer": "RANCID",
+					"src": "RANCID - Fall Back Down.mp3",
+					"img": "https://i.scdn.co/image/ab67616d00001e025412c46b93d275c1c51e00a1"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"type": "",
+			"createdBy": "novrialsandi",
+			"imgURL": "https://i.scdn.co/image/ab67616d0000b273b992f60fc7849532b64fd549",
+			"playlist": "Playlist 2",
+			"desc": "blink-182, Gloria Gaynor, JEON SOMI (전소미) and more",
+			"list": [
+				{
+					"title": "EDGING",
+					"singer": "blink-182",
+					"src": "blink-182 - EDGING.mp3",
+					"img": "https://i.scdn.co/image/ab67616d0000b273992db40efc4367bebea586f7"
+				},
+				{
+					"title": "I Will Survive",
+					"singer": "Gloria Gaynor",
+					"src": "Gloria Gaynor - I Will Survive.mp3",
+					"img": "https://i.scdn.co/image/ab67616d0000b273dbf1428f6a9e4aba87d37296"
+				},
+				{
+					"title": "Anymore",
+					"singer": "JEON SOMI (전소미)",
+					"src": "JEON SOMI (전소미) - Anymore.mp3",
+					"img": "https://i.scdn.co/image/ab67616d0000b273567e4a23788ec80a43a1bc09"
+				},
+				{
+					"title": "Fall Back Down",
+					"singer": "RANCID",
+					"src": "RANCID - Fall Back Down.mp3",
+					"img": "https://i.scdn.co/image/ab67616d00001e025412c46b93d275c1c51e00a1"
+				}
+			]
+		}
 	]
 }
