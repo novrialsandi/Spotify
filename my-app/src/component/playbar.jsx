@@ -1,5 +1,4 @@
 import "../css/spotify.css";
-import gambar from "../asset/tulus.jpg";
 import {
 	Slider,
 	SliderTrack,

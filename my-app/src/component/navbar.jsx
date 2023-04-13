@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@chakra-ui/react";
 
-import gambar1 from "../asset/foto1.jpg";
+import gambar1 from "../assets/img/foto1.jpg";
 import { auth_types } from "../redux/types";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";

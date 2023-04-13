@@ -1,4 +1,16 @@
-import { Box, Flex, Icon } from "@chakra-ui/react";
+import {
+	Box,
+	Flex,
+	Icon,
+	useDisclosure,
+	Modal,
+	ModalOverlay,
+	ModalContent,
+	ModalHeader,
+	ModalFooter,
+	ModalBody,
+	ModalCloseButton,
+} from "@chakra-ui/react";
 import "../css/spotify.css";
 import SpotifyLogo from "../assets/img/Spotify.png";
 import { RiHomeFill } from "react-icons/ri";
@@ -6,8 +18,11 @@ import { FiSearch } from "react-icons/fi";
 import { VscLibrary } from "react-icons/vsc";
 import { AiOutlinePlusSquare } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
+import { CreatePlaylist } from "./Modal";
 
-export default function Sidebar() {
+export default function Sidebar(props) {
+	const { isOpen, onOpen, onClose } = useDisclosure();
+
 	return (
 		<Box bgColor={"black"} id="boxS">
 			<Flex id="spotifyS">
@@ -29,7 +44,13 @@ export default function Sidebar() {
 			</Box>
 
 			<Box id="playlistS">
-				<Flex className="flexS">
+				<Flex className="flexS" onClick={onOpen} cursor={"pointer"}>
+					<Modal isOpen={isOpen} onClose={onClose}>
+						<ModalOverlay />
+						<ModalContent>
+							<CreatePlaylist onClose={onClose} />
+						</ModalContent>
+					</Modal>
 					<Icon
 						as={AiOutlinePlusSquare}
 						height="24px"
