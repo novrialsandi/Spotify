@@ -10,6 +10,7 @@ import {
 	Checkbox,
 	InputGroup,
 	InputRightElement,
+	useToast,
 } from "@chakra-ui/react";
 import { BsApple, BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
@@ -18,6 +19,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { auth_types } from "../redux/types";
 import axios from "axios";
+import { userLogin } from "../redux/middlewares/userauth";
+import { Toast } from "@chakra-ui/react";
 
 export default function LoginPage() {
 	const nav = useNavigate();
@@ -39,29 +42,47 @@ export default function LoginPage() {
 	}
 
 	const [seePassword, setSeePassword] = useState(false);
+	const toast = useToast();
 
 	async function login() {
-		//karena butuh waktu untuk mendapatkan data dari API
-		//maka function dibuat menjadi async
-		await axios
-			.get("http://localhost:2000/user", {
-				params: {
-					email: account.email.toLowerCase(),
-					password: account.password,
-				},
-			})
-			.then((res) => {
-				if (res.data.length) {
-					dispatch({
-						type: auth_types.login,
-						payload: res.data[0],
-					});
-					localStorage.setItem("user", JSON.stringify(res.data[0]));
-					return nav("/home");
-				} else {
-					alert("email/password salah");
-				}
+		// karena butuh waktu untuk mendapatkan data dari API
+		// maka function dibuat menjadi async
+		// await axios
+		// .get("http://localhost:2000/user", {
+		// 	params: {
+		// 		email: account.email.toLowerCase(),
+		// 		password: account.password,
+		// 	},
+		// })
+		// .then((res) => {
+		// 	if (res.data.length) {
+		// 		dispatch({
+		// 			type: auth_types.login,
+		// 			payload: res.data[0],
+		// 		});
+		// 		localStorage.setItem("user", JSON.stringify(res.data[0]));
+		// 		return nav("/home");
+		// 	} else {
+		// 		alert("email/password salah");
+		// 	}
+		// });
+		toast.closeAll();
+		const status = await dispatch(userLogin(account));
+		if (status) {
+			toast({
+				title: "You are successfully logged in",
+				status: "success",
+				duration: 3000,
+				isClosable: true,
 			});
+			return nav("/home");
+		}
+		toast({
+			title: "Wrong email/password",
+			status: "error",
+			duration: 3000,
+			isClosable: true,
+		});
 	}
 
 	return (

@@ -184,8 +184,6 @@ export default function Content(props) {
 		<div className="backgroundB">
 			<div className="paddingKontenB">
 				<div className="kontenerB">
-					<br />
-					<br />
 					<div className="namaGroupB">
 						<div className="h1B">
 							Spotify original & exlusive shows
@@ -204,8 +202,6 @@ export default function Content(props) {
 					</div>
 				</div>
 				<div className="kontenerB">
-					<br />
-					<br />
 					<div className="namaGroupB">
 						<div className="h1B">My Playlist</div>
 						<div className="h2B">Show all</div>
