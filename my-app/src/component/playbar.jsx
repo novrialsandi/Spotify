@@ -52,7 +52,7 @@ export default function Playbar(props) {
 	}, [currentTime]);
 
 	async function updateTime() {
-		if (currentTime == audio.duration && audio.duration) {
+		if (currentTime === audio.duration && audio.duration) {
 			setCounter(counter + 1);
 			return await changeSong(counter + 1);
 		}
