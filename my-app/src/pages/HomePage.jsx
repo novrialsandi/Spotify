@@ -33,6 +33,7 @@ export default function Homepage(props) {
 		await axios
 			.get("http://localhost:2000/playlist")
 			.then((res) => setHome_playlist(res.data));
+		// await axios.get("http://localhost:2000/playlist")
 	}
 
 	useEffect(() => {
