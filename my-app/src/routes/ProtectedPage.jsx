@@ -11,7 +11,7 @@ export default function ProtectedPage({
 
 	useEffect(() => {
 		if (guestOnly && user?.email) {
-			return nav("/home");
+			return nav("/");
 		} else if (needLogin && !user.email) {
 			return nav("/login");
 		}

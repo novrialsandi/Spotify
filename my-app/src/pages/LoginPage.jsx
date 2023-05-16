@@ -75,7 +75,7 @@ export default function LoginPage() {
 				duration: 3000,
 				isClosable: true,
 			});
-			return nav("/home");
+			return nav("/");
 		}
 		toast({
 			title: "Wrong email/password",

@@ -6,7 +6,7 @@ import RegisterPage from "../pages/RegisterPage";
 
 const routes = [
 	<Route
-		path="/home"
+		path="/"
 		element={
 			<ProtectedPage guestOnly={false} needLogin={true}>
 				<Homepage />
