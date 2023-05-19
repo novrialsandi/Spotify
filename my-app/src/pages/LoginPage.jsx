@@ -11,6 +11,7 @@ import {
 	InputGroup,
 	InputRightElement,
 	useToast,
+	Link,
 } from "@chakra-ui/react";
 import { BsApple, BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
@@ -48,24 +49,24 @@ export default function LoginPage() {
 		// karena butuh waktu untuk mendapatkan data dari API
 		// maka function dibuat menjadi async
 		// await axios
-		// .get("http://localhost:2000/user", {
-		// 	params: {
-		// 		email: account.email.toLowerCase(),
-		// 		password: account.password,
-		// 	},
-		// })
-		// .then((res) => {
-		// 	if (res.data.length) {
-		// 		dispatch({
-		// 			type: auth_types.login,
-		// 			payload: res.data[0],
-		// 		});
-		// 		localStorage.setItem("user", JSON.stringify(res.data[0]));
-		// 		return nav("/home");
-		// 	} else {
-		// 		alert("email/password salah");
-		// 	}
-		// });
+		// 	.get("http://localhost:2000/user", {
+		// 		params: {
+		// 			email: account.email.toLowerCase(),
+		// 			password: account.password,
+		// 		},
+		// 	})
+		// 	.then((res) => {
+		// 		if (res.data.length) {
+		// 			dispatch({
+		// 				type: auth_types.login,
+		// 				payload: res.data[0],
+		// 			});
+		// 			localStorage.setItem("user", JSON.stringify(res.data[0]));
+		// 			return nav("/home");
+		// 		} else {
+		// 			alert("email/password salah");
+		// 		}
+		// 	});
 		toast.closeAll();
 		const status = await dispatch(userLogin(account));
 		if (status) {
