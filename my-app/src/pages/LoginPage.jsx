@@ -11,7 +11,6 @@ import {
 	InputGroup,
 	InputRightElement,
 	useToast,
-	Link,
 } from "@chakra-ui/react";
 import { BsApple, BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
