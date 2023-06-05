@@ -8,14 +8,35 @@ import {
 	Textarea,
 	Center,
 } from "@chakra-ui/react";
+import axios from "axios";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { useSelector } from "react-redux";
+
 export function CreatePlaylist(props) {
-	const [imgUrl, setImgUrl] = useState(require("../assets/img/logo.png"));
+	const userSelector = useSelector((state) => state.auth);
+
+	const [imgUrl, setImgUrl] = useState(
+		require("../assets/default-spotify.png")
+	);
+
+	function inputHandler(event) {
+		const id = event.target.id;
+		const value = event.target.value;
+		const tempObj = { ...props.details };
+		tempObj[id] = value;
+		props.setDetails(tempObj);
+		console.log(tempObj);
+	}
+
+	async function save() {
+		const { imgURL, playlist, desc, createBy, list } = props.details;
+		await axios.post("http://localhost:2000/playlist", props.details);
+	}
 
 	function input(e) {
 		if (!e.target.value) {
-			setImgUrl(require("../assets/img/logo.png"));
+			setImgUrl(require("../assets/album1.jpeg"));
 			return;
 		}
 		setImgUrl(e.target.value);
@@ -28,7 +49,7 @@ export function CreatePlaylist(props) {
 				color={"white"}
 				maxW={"524px"}
 				// maxH={'389px'}
-				w={"524px"}
+				w={"700px"}
 				h="100%"
 				borderRadius={"5px"}
 				flexDir={"column"}
@@ -67,7 +88,11 @@ export function CreatePlaylist(props) {
 							w="180px"
 							h="40px"
 							placeholder="Image URL"
-							onChange={input}
+							onChange={(e) => {
+								input(e);
+								inputHandler(e);
+							}}
+							id="imgURL"
 						></Input>
 					</Flex>
 					<Flex flexDir={"column"} justifyContent={"space-between"}>
@@ -77,6 +102,8 @@ export function CreatePlaylist(props) {
 							w="280px"
 							h="40px"
 							placeholder="Title"
+							id="playlist"
+							onChange={inputHandler}
 						></Input>
 						<Textarea
 							bgColor={"#3E3E3E"}
@@ -86,6 +113,8 @@ export function CreatePlaylist(props) {
 							h={"100%"}
 							resize={"none"}
 							placeholder="Description"
+							id="desc"
+							onChange={inputHandler}
 						></Textarea>
 					</Flex>
 				</Flex>
@@ -93,7 +122,11 @@ export function CreatePlaylist(props) {
 					<Flex paddingX={"24px"} fontWeight={"bold"}>
 						Add Musics
 					</Flex>
-					<ListMusics />
+					<ListMusics
+						listLagu={props.listLagu}
+						getData={props.getData}
+						details={props.details}
+					/>
 				</Flex>
 
 				<Center w="100%">
@@ -104,6 +137,7 @@ export function CreatePlaylist(props) {
 						h="48px"
 						w="90%"
 						cursor={"pointer"}
+						onClick={save}
 					>
 						SAVE
 					</Center>
@@ -113,15 +147,18 @@ export function CreatePlaylist(props) {
 	);
 }
 
-export function ListMusics() {
+export function ListMusics(props) {
+	const [pages, setPages] = useState(1);
+
 	return (
 		<>
-			<Flex flexDir={"column"} paddingBottom="10px" gap={"10px"}>
+			<Flex flexDir={"column"} paddingBottom="10px" gap={"10px"} W="100%">
 				<Grid
 					templateColumns="1fr 2fr 1fr"
 					columnGap={5}
 					maxH={"550px"}
 					overflow={"hidden"}
+					W="100%"
 				>
 					<GridItem w="100%" h="25px"></GridItem>
 					<GridItem w="100%" h="25px" fontWeight={"bold"}>
@@ -131,70 +168,46 @@ export function ListMusics() {
 						Artist
 					</GridItem>
 
-					<GridItem w="100%" h="25px" fontWeight={"bold"}>
-						<Center>Add</Center>
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Akhir Cerita Cinta
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Glenn Fredly
-					</GridItem>
-
-					<GridItem w="100%" h="25px" fontWeight={"bold"}>
-						<Center>Add</Center>
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Akhir Cerita Cinta
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Glenn Fredly
-					</GridItem>
-
-					<GridItem w="100%" h="25px" fontWeight={"bold"}>
-						<Center>Add</Center>
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Akhir Cerita Cinta
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Glenn Fredly
-					</GridItem>
-
-					<GridItem w="100%" h="25px" fontWeight={"bold"}>
-						<Center>Add</Center>
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Akhir Cerita Cinta
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Glenn Fredly
-					</GridItem>
-
-					<GridItem w="100%" h="25px" fontWeight={"bold"}>
-						<Center>Add</Center>
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Akhir Cerita Cinta
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Glenn Fredly
-					</GridItem>
-
-					<GridItem w="100%" h="25px" fontWeight={"bold"}>
-						<Center>Add</Center>
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Akhir Cerita Cinta
-					</GridItem>
-					<GridItem w="100%" h="25px">
-						Glenn Fredly
-					</GridItem>
+					{props?.listLagu?.map((val) => (
+						<>
+							<GridItem w="100%" h="25px" fontWeight={"bold"}>
+								<Center
+									onClick={() => props.details.list.push(val)}
+								>
+									Add
+								</Center>
+							</GridItem>
+							<GridItem w="100%" h="25px" overflow={"hidden"}>
+								{val.title}
+							</GridItem>
+							<GridItem w="100%" h="25px" overflow={"hidden"}>
+								{val.singer}
+							</GridItem>
+						</>
+					))}
 				</Grid>
 
 				<Flex gap={"20px"} w="100%" justifyContent={"center"}>
-					<Flex cursor={"pointer"}>Prev</Flex>
-					<Flex cursor={"pointer"}>Next</Flex>
+					<Flex
+						cursor={"pointer"}
+						onClick={async () => {
+							const p = await props.getData(pages - 1);
+							// alert(p);
+							setPages(p);
+						}}
+					>
+						Prev
+					</Flex>
+					<Flex
+						cursor={"pointer"}
+						onClick={async () => {
+							const p = await props.getData(pages + 1);
+							// alert(p);
+							setPages(p);
+						}}
+					>
+						Next
+					</Flex>
 				</Flex>
 			</Flex>
 		</>

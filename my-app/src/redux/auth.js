@@ -6,7 +6,6 @@ const init = {
 };
 
 function userReducer(state = init, action) {
-	// action adalah event yang terjadi
 	if (action.type === auth_types.login) {
 		return {
 			...state,
