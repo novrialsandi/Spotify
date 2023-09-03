@@ -20,7 +20,7 @@ import { AiOutlinePlusSquare } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
 import { CreatePlaylist } from "./Modal";
 
-export default function Sidebar(props) {
+export default function Sidebar({ playlist }) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	return (
@@ -51,36 +51,18 @@ export default function Sidebar(props) {
 							<CreatePlaylist onClose={onClose} />
 						</ModalContent>
 					</Modal>
-					<Icon
-						as={AiOutlinePlusSquare}
-						height="24px"
-						width={"24px"}
-					></Icon>
+					<Icon as={AiOutlinePlusSquare} height="24px" width={"24px"}></Icon>
 					Create Playlist
 				</Flex>
 				<Flex className="flexS">
-					<Icon as={FcLike} height="24px" width={"24px"}></Icon>Liked
-					Songs
+					<Icon as={FcLike} height="24px" width={"24px"}></Icon>Liked Songs
 				</Flex>
 			</Box>
 			<Box>
 				<Box id="boxPlaylistS">
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
-					<div>Playlist</div>
+					{playlist.map((val) => (
+						<div>{val.title}</div>
+					))}
 				</Box>
 			</Box>
 		</Box>

@@ -52,7 +52,7 @@ export default function Homepage(props) {
 					<Content data={home_playlist} setPlaylist={setPlaylist} />
 					<Navbar />
 					<Playbar key="playbar" playlist={playlist} />
-					<Sidebar />
+					<Sidebar playlist={playlist} />
 				</>
 			)}
 		</>

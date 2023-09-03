@@ -16,9 +16,8 @@ import { useSelector } from "react-redux";
 export function CreatePlaylist(props) {
 	const userSelector = useSelector((state) => state.auth);
 
-	const [imgUrl, setImgUrl] = useState(
-		require("../assets/default-spotify.png")
-	);
+	const [imgUrl, setImgUrl] = useState();
+	// require("../assets/default-spotify.png")
 
 	function inputHandler(event) {
 		const id = event.target.id;
@@ -36,7 +35,7 @@ export function CreatePlaylist(props) {
 
 	function input(e) {
 		if (!e.target.value) {
-			setImgUrl(require("../assets/album1.jpeg"));
+			// setImgUrl(require("../assets/album1.jpeg"));
 			return;
 		}
 		setImgUrl(e.target.value);
@@ -71,10 +70,7 @@ export function CreatePlaylist(props) {
 						></Icon>
 					</Flex>
 				</Flex>
-				<Flex
-					padding={"0px 24px 24px 24px"}
-					justifyContent={"space-between"}
-				>
+				<Flex padding={"0px 24px 24px 24px"} justifyContent={"space-between"}>
 					<Flex flexDir={"column"} gap="10px">
 						<Image
 							w={"180px"}
@@ -171,9 +167,7 @@ export function ListMusics(props) {
 					{props?.listLagu?.map((val) => (
 						<>
 							<GridItem w="100%" h="25px" fontWeight={"bold"}>
-								<Center
-									onClick={() => props.details.list.push(val)}
-								>
+								<Center onClick={() => props.details.list.push(val)}>
 									Add
 								</Center>
 							</GridItem>
